@@ -7,14 +7,18 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version'
 ])
-  .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
-
-    $routeProvider.otherwise({redirectTo: '/view1'});
-  }])
-  .directive('uiTemplate', [
-    function () {
-      return function(scope, element, attrs) {
-        window.scope = scope;
-      };
+    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+      $locationProvider.hashPrefix('!');
+      $routeProvider.otherwise({redirectTo: '/view1'});
+    }])
+    .directive('uiTemplate', [function () {
+        return {
+            restrict: 'E',
+            // transclude: true,
+            // scope: true,
+            templateUrl: './view1/ui_template.html',
+            link: function(scope) {
+                // console.log(scope);
+            }
+        }
     }]);
