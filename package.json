@@ -1,6 +1,6 @@
 {
   "name": "red-dashboard-svg-control",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Controllable SVG elements in Node-RED Dashboard via UI Template node.",
   "repository": "",
   "license": "MIT",

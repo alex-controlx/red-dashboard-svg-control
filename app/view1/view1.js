@@ -12,6 +12,11 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', ['$scope', function($scope) {
   // --- below is for UI Template ----
   $scope.msg = {};
+  const cxAttr = "cx-type";
+  const cxMove = "cx_move";
+  const cxColor = "cx_color";
+  const cxStatus = "cx_status";
+  const cxHide = "cx_hide";
   // --- END ----
 
   $scope.selectedColorEl = null;
@@ -23,14 +28,14 @@ angular.module('myApp.view1', ['ngRoute'])
 
   $scope.changeColor = function() {
     if (!$scope.selectedColorEl) return;
-    $scope.msg = { payload: 'rgb(' + Object.values($scope.color).join(',') + ')', topic: $scope.selectedColorEl };
+    $scope.msg = { payload: 'rgb(' + Object.values($scope.color).join(',') + ')', topic: cxColor + "@" + $scope.selectedColorEl };
   };
 
   $scope.selectedOnOffEl = null;
   $scope.switchOn = function(_value) {
     if (!$scope.selectedOnOffEl) return;
     const color = (_value) ? '#eaeaea' : '#8b8b8b';
-    $scope.msg = { payload: color, topic: $scope.selectedOnOffEl };
+    $scope.msg = { payload: color, topic: cxColor + "@" + $scope.selectedOnOffEl };
   };
 
   $scope.position = {
@@ -46,7 +51,7 @@ angular.module('myApp.view1', ['ngRoute'])
       y: $scope.position.y,
       deg: $scope.position.deg
     };
-    $scope.msg = { payload: config, topic: $scope.selectedMoveEl };
+    $scope.msg = { payload: config, topic: cxMove + "@" + $scope.selectedMoveEl };
   };
   $scope.zeroPosition = function(key) {
     $scope.position[key] = 0;
@@ -57,7 +62,13 @@ angular.module('myApp.view1', ['ngRoute'])
   $scope.newStatus = 'Running';
   $scope.changeStatus = function() {
     if (!$scope.selectedStatusEl) return;
-    $scope.msg = { payload: $scope.newStatus, topic: $scope.selectedStatusEl };
+    $scope.msg = { payload: $scope.newStatus, topic: cxStatus + "@" + $scope.selectedStatusEl };
+  };
+
+  $scope.selectedHideEl = null;
+  $scope.hide = function(toHide) {
+    if (!$scope.selectedHideEl) return;
+    $scope.msg = { payload: toHide, topic: cxHide + "@" + $scope.selectedHideEl };
   };
 
 }]);

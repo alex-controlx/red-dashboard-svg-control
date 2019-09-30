@@ -1,6 +1,6 @@
 <div>
     <select ng-model="selectedColorEl">
-        <option ng-repeat="item in graphicObjects | filter : { hasColor : true }"
+        <option ng-repeat="item in graphicObjects | filter : { cxColor : true }"
                 ng-value="item.id">{{item.id}}</option>
     </select>
     <input ng-change="changeColor()" ng-model="color.red" type="range" min="0" max="255">
@@ -9,7 +9,7 @@
 </div>
 <div>
     <select ng-model="selectedOnOffEl">
-        <option ng-repeat="item in graphicObjects | filter : { hasColor : true }"
+        <option ng-repeat="item in graphicObjects | filter : { cxColor : true }"
                 ng-value="item.id">{{item.id}}</option>
     </select>
     <button ng-click="switchOn(true)">ON</button>
@@ -17,7 +17,7 @@
 </div>
 <div>
     <select ng-model="selectedMoveEl">
-        <option ng-repeat="item in graphicObjects | filter : { hasMove : true }"
+        <option ng-repeat="item in graphicObjects | filter : { cxMove : true }"
                 ng-value="item.id">{{item.id}}</option>
     </select>
     <input ng-change="changePosition()" ng-model="position.x" type="range" min="-100" max="100" ng-dblclick="zeroPosition('x')">
@@ -26,10 +26,23 @@
 </div>
 <div>
     <select ng-model="selectedStatusEl">
-        <option ng-repeat="item in graphicObjects | filter : { hasStatus : true }"
+        <option ng-repeat="item in graphicObjects | filter : { cxStatus : true }"
                 ng-value="item.id">{{item.id}}</option>
     </select>
     <input type="text" ng-model="newStatus" ng-change="changeStatus()">
+</div>
+
+<div>
+    <select ng-model="selectedHideEl">
+        <option ng-repeat="item in graphicObjects | filter : { cxHide : true }"
+                ng-value="item.id">{{item.id}}</option>
+    </select>
+    <button ng-click="hide(true)">HIDE</button>
+    <button ng-click="hide(false)">SHOW</button>
+</div>
+<div>
+    <p>Node-RED message:</p>
+    <pre>{{msg}}</pre>
 </div>
 
 <ui-template></ui-template>
