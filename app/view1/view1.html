@@ -41,6 +41,13 @@
     <button ng-click="hide(false)">SHOW</button>
 </div>
 <div>
+    <select ng-model="combinedEl">
+        <option ng-repeat="item in graphicObjects | filter : ( {cxStatus : true} || {cxColor : true} )"
+                ng-value="item.id">{{item.id}}</option>
+    </select>
+    <button ng-click="mixedAnimation()">TOGGLE</button>
+</div>
+<div>
     <p>Node-RED message:</p>
     <pre>{{msg}}</pre>
 </div>
