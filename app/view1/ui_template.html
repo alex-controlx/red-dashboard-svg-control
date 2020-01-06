@@ -130,7 +130,7 @@
                         graphicObject.element.css({display: displayAttr})
 
                     } else if (cxType === cxMove && graphicObject.cxMove) {
-                        // SVGRect {x: 51.95399475097656, y: 54.69599914550781, width: 94.41000366210938, height: 94.41000366210938}
+                        // box = SVGRect {x: 51.95399475097656, y: 54.69599914550781, width: 94.41000366210938, height: 94.41000366210938}
                         const box = graphicObject.element[0].getBBox();
                         const matrix = getMatrix(payload, box);
                         if (matrix) graphicObject.element.attr('transform', matrix);
@@ -150,8 +150,10 @@
                 const rads = config.deg * (Math.PI / 180) || 0;
                 // rotation centre
                 // box = { x: 51.95399475097656, y: 54.69599914550781, width: 94.41000366210938, height: 94.41000366210938 }
-                const cx = box.x + box.width/2 || 0;
-                const cy = box.y + 0 || 0;
+                const pivot_x = (config.pivot && config.pivot[0])? config.pivot[0] : 0;
+                const pivot_y = (config.pivot && config.pivot[1])? config.pivot[1] : 0;
+                const cx = box.x + box.width * ( (pivot_x)? pivot_x : 0.5 );
+                const cy = box.y + box.height * ( (pivot_y)? pivot_y : 0 );
                 // scaling
                 const sx = 1;
                 const sy = 1;
