@@ -40,7 +40,7 @@ the Template node will animate your SVG content.
 
 ### API
 Type of Node-RED message payload with the following topics:
-- `unique_id@`+`cx_move` payload is an object `{x: number, y: number, deg: number, pivot: [number, number]}`;
+- `unique_id@`+`cx_move` payload is an object `{x: number, y: number, deg: number, pivot: [number(0 to 1), number(0 to 1)]}`;
 - `unique_id@`+`cx_color` - payload is a string;
 - `unique_id@`+`cx_status` - payload is 12 characters string;
 - `unique_id@`+`cx_hide` - payload is a boolean (true or false).
