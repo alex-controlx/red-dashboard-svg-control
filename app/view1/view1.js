@@ -17,6 +17,7 @@ angular.module('myApp.view1', ['ngRoute'])
   const cxColor = "cx_color";
   const cxStatus = "cx_status";
   const cxHide = "cx_hide";
+  const cxStroke = "cx_stroke";
   // --- END ----
 
   $scope.selectedColorEl = null;
@@ -85,5 +86,20 @@ angular.module('myApp.view1', ['ngRoute'])
       ]
     }
   };
+
+  $scope.stroke = {
+    color: "",
+    width: 1
+  };
+  $scope.selectedStrokeEl = null;
+  $scope.changeStroke = function(color, width) {
+    if (!$scope.selectedStrokeEl) return;
+    const config = {
+      color: (color != null) ? color : $scope.stroke.color,
+      width: (width != null) ? width : $scope.stroke.width
+    };
+    $scope.msg = { payload: config, topic: scope.selectedStrokeEl.split("@")[0] + "@" + cxStroke};
+  };
+
 
 }]);

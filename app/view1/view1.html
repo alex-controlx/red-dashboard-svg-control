@@ -48,6 +48,15 @@
     <button ng-click="mixedAnimation()">TOGGLE</button>
 </div>
 <div>
+    <select ng-model="selectedStrokeEl">
+        <option ng-repeat="item in graphicObjects | filter : { cxStroke : true }"
+                ng-value="item.id">{{item.id}}</option>
+    </select>
+    <input type="text" ng-model="stroke.color" ng-change="changeStroke(stroke.color, null)">
+    <input type="text" ng-model="stroke.width" ng-change="changeStroke(null, stroke.width)">
+</div>
+
+<div>
     <p>Node-RED message:</p>
     <pre>{{msg}}</pre>
 </div>

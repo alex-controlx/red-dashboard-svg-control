@@ -44,6 +44,8 @@ Type of Node-RED message payload with the following topics:
 - `unique_id@`+`cx_color` - payload is a string;
 - `unique_id@`+`cx_status` - payload is 12 characters string;
 - `unique_id@`+`cx_hide` - payload is a boolean (true or false).
+- `unique_id@`+`cx_stroke` - payload is an object `{color: string, width: number}`. Both attributes are optional, so 
+stroke can have predefined color and width can be dynamic to create flashing effect. [Example](https://github.com/Alex-OPTIM/red-dashboard-svg-control/blob/master/screenshots/stroke_example.png).
 
 ### TODO
 - Test and document usage of `payload` as an array of payloads;

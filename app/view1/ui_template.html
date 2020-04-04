@@ -12,7 +12,7 @@
         <g>
             <title>Tank</title>
             <rect x="176.613" y="128.451" width="220" height="300" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;"/>
-            <path style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -347.961029)" d="M 517.165 616.914 A 67.339 67.339 0 1 1 651.843 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 270 90 1@b77ee557"/>
+            <path id="tank@cx_stroke" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -347.961029)" d="M 517.165 616.914 A 67.339 67.339 0 1 1 651.843 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 270 90 1@b77ee557"/>
             <path style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -47.961182)" d="M 651.843 616.914 A 67.339 67.339 0 1 1 517.165 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 90 270 1@236ce6ad"/>
             <text style="fill: rgb(98, 98, 98); font-size: 26px; font-weight: 700; white-space: pre;" x="248.973" y="113.804"><title>Name</title>T-101</text>
             <path d="M 180.508 277.8 C 187.809 272.503 191.399 276.589 198.293 276.589 C 201.263 276.589 205.577 275.245 208.504 276.217 C 211.271 277.135 216.156 279.449 219.265 277.971 C 221.86 276.736 227.125 274.688 230.379 275.768 C 231.999 276.306 236.096 277.93 237.778 276.801 C 238.764 276.139 244.703 273.727 246.093 274.682 C 248.27 276.178 252.621 277.752 255.312 276.853 C 261.776 274.693 267.727 278.647 274.034 277.714 C 286.384 275.887 299.15 274.115 312.32 276.3 C 320.345 277.631 333.161 278.344 339.627 275.349 C 341.713 274.382 346.935 276.165 349.672 275.535 C 353.293 274.7 356.633 276.435 360.053 277.069 C 365.108 278.006 371.654 278.288 376.764 278.288 C 379.549 278.288 384.165 276.189 386.671 277.91 C 387.729 278.637 391.621 277.62 392.567 277.257 C 394.148 276.648 396.613 278.044 396.613 277.138" style="stroke-width: 3px; fill: none; vector-effect: non-scaling-stroke; stroke: rgb(40, 53, 147);"/>
@@ -64,6 +64,7 @@
             const cxColor = "cx_color";
             const cxStatus = "cx_status";
             const cxHide = "cx_hide";
+            const cxStroke = "cx_stroke";
             const maxStatusLength = 12;
 
 
@@ -85,7 +86,8 @@
                                 cxMove: (this.id.indexOf(cxMove) > 0),
                                 cxColor: (this.id.indexOf(cxColor) > 0),
                                 cxStatus: (this.id.indexOf(cxStatus) > 0),
-                                cxHide: (this.id.indexOf(cxHide) > 0)
+                                cxHide: (this.id.indexOf(cxHide) > 0),
+                                cxStroke: (this.id.indexOf(cxStroke) > 0),
                             });
                         }
                         recursiveEach($currentElement, container);
@@ -135,6 +137,10 @@
                         const matrix = getMatrix(payload, box);
                         if (matrix) graphicObject.element.attr('transform', matrix);
 
+                    } else if (cxType === cxStroke && graphicObject.cxStroke) {
+                        // const displayAttr = (payload)? 'none' : '';
+                        if (payload.color != null) graphicObject.element.css({stroke: payload.color});
+                        if (payload.width != null) graphicObject.element.css({["stroke-width"]: payload.width});
                     }
                 }
             }
