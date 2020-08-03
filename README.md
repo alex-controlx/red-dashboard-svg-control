@@ -8,7 +8,7 @@ Recommend cloning for contribution only.
 
 To use controllable SVG components in Template of Node-RED Dashboard follow the instructions below.  
 
-... WORK IN PROGRESS but already usable ...
+If there is a question, leave it in the [Issues section](https://github.com/Alex-OPTIM/red-dashboard-svg-control/issues). 
 
 ### SVG
 Create SVG image in third party software. I used [Boxy SVG](https://boxy-svg.com/) (not sure if there is a 
@@ -40,7 +40,9 @@ the Template node will animate your SVG content.
 
 ### API
 Type of Node-RED message payload with the following topics:
-- `unique_id@`+`cx_move` payload is an object `{x: number, y: number, deg: number, pivot: [number(0 to 1), number(0 to 1)]}`;
+- `unique_id@`+`cx_move` payload is an object `{x: number, y: number, deg: number, pivot: [number(0 to 1), number(0 to 1)]}`. 
+Pivot point parameters are relative to its container. For example, to rotate a 10x10 pixel box with a pivot in the centre,
+ it needs to be `pivot: [0.5, 0.5]` or for a pivot in the right bottom corner `pivot: [1, 1]`. 
 - `unique_id@`+`cx_color` - payload is a string;
 - `unique_id@`+`cx_status` - payload is 12 characters string;
 - `unique_id@`+`cx_hide` - payload is a boolean (true or false).
