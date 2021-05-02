@@ -74,7 +74,7 @@
                     $scope.graphicObjects = [];
                 }
                 recursiveEach($("#graphics"), $scope.graphicObjects);
-                console.log($scope.graphicObjects);
+                // console.log($scope.graphicObjects);
 
                 function recursiveEach(element, container){
                     element.children().each(function () {
@@ -115,7 +115,8 @@
                 const id = topic.split('@')[0], cxType = topic.split('@')[1];
 
                 for (const graphicObject of $scope.graphicObjects) {
-                    if (graphicObject.id.indexOf(id) === -1 || graphicObject.id.indexOf(cxType) === -1) continue;
+                    const objId = graphicObject.id.split('@')[0];
+                    if (objId !== id || graphicObject.id.indexOf(cxType) === -1) continue;
 
                     if (cxType === cxColor && graphicObject.cxColor && typeof payload === 'string') {
 
