@@ -65,7 +65,7 @@
             const cxStatus = "cx_status";
             const cxHide = "cx_hide";
             const cxStroke = "cx_stroke";
-            const maxStatusLength = 12;
+            const maxStatusLength = 100;
 
 
             $scope.checkSVG = function() {
@@ -109,39 +109,45 @@
 
             function animateObject(payload, topic) {
 
-                if (payload === undefined || payload === null ||
-                    !topic || typeof topic !== 'string' || !topic.includes('@')) return;
+                if (payload === undefined || payload === null || !topic || typeof topic !== 'string' || !topic.includes('@')) return null;
+                
+                // id y comando del objeto actual buscado.
+                const id = topic.split('@')[0];
+                const cxType = topic.split('@')[1];
+                const cxTypeParts = cxType.split(',');
 
-                const id = topic.split('@')[0], cxType = topic.split('@')[1];
-
-                for (const graphicObject of $scope.graphicObjects) {
+                for (const graphicObject of $scope.graphicObjects) {  // Recorre todos los objetos del .svg
                     const objId = graphicObject.id.split('@')[0];
-                    if (objId !== id || graphicObject.id.indexOf(cxType) === -1) continue;
-
-                    if (cxType === cxColor && graphicObject.cxColor && typeof payload === 'string') {
-
-                        graphicObject.element.css({fill : payload});
-
-                    } else if (cxType === cxStatus && graphicObject.cxStatus && typeof payload === 'string') {
-                        const statusText = (payload.length > maxStatusLength) ?
-                            payload.substring(0, maxStatusLength - 3) + '...' : payload;
-
-                        graphicObject.element.text(statusText);
-
-                    } else if (cxType === cxHide && graphicObject.cxHide && typeof payload === 'boolean') {
-                        const displayAttr = (payload)? 'none' : '';
-                        graphicObject.element.css({display: displayAttr})
-
-                    } else if (cxType === cxMove && graphicObject.cxMove) {
-                        // box = SVGRect {x: 51.95399475097656, y: 54.69599914550781, width: 94.41000366210938, height: 94.41000366210938}
-                        const box = graphicObject.element[0].getBBox();
-                        const matrix = getMatrix(payload, box);
-                        if (matrix) graphicObject.element.attr('transform', matrix);
-
-                    } else if (cxType === cxStroke && graphicObject.cxStroke) {
-                        // const displayAttr = (payload)? 'none' : '';
-                        if (payload.color != null) graphicObject.element.css({stroke: payload.color});
-                        if (payload.width != null) graphicObject.element.css({["stroke-width"]: payload.width});
+                    if (objId !== id) continue;  // Si no es el objeto actual buscado salta el siguiente for.
+                    
+                    for (const cxt of cxTypeParts) {
+                        if (cxt === cxColor && typeof payload === 'string') {
+                            graphicObject.element.css({fill : payload});  // msg.payload = "color"
+                            
+                        } else if (cxt === cxColor) {
+                            if (payload.color != null) graphicObject.element.css({fill: payload.color});  // msg.payload = {color: "color"}
+                            
+                        } else if (cxt === cxStatus && typeof payload === 'string') {
+                            const statusText = (payload.length > maxStatusLength) ? payload.substring(0, maxStatusLength - 3) + '...' : payload;
+    
+                            graphicObject.element.text(statusText);
+    
+                        } else if (cxt === cxHide && typeof payload === 'boolean') {
+                            const displayAttr = (payload)? 'none' : '';
+                            
+                            graphicObject.element.css({display: displayAttr})
+    
+                        } else if (cxt === cxMove) {
+                            // box = SVGRect {x: 51.95399475097656, y: 54.69599914550781, width: 94.41000366210938, height: 94.41000366210938}
+                            const box = graphicObject.element[0].getBBox();
+                            const matrix = getMatrix(payload, box);
+                            if (matrix) graphicObject.element.attr('transform', matrix);
+    
+                        } else if (cxt === cxStroke) {
+                            // const displayAttr = (payload)? 'none' : '';
+                            if (payload.color != null) graphicObject.element.css({stroke: payload.color});
+                            if (payload.width != null) graphicObject.element.css({["stroke-width"]: payload.width});
+                        }
                     }
                 }
             }
@@ -176,3 +182,4 @@
         })(scope);
     </script>
 </div>
+
