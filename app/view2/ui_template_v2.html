@@ -1,0 +1,248 @@
+<div id="graphics" ng-init="svgInit('graphics')">
+
+    <!-- SVG FILE CONTENT BELOW -->
+
+    <svg viewBox="0 0 1280 800" width="640px" height="400px" style="border: 1px solid black;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <marker id="marker-0" viewBox="0 0 10 10" overflow="visible" orient="auto" refX="10" refY="5" markerWidth="10" markerHeight="10">
+                <path d="M 5 0 L 10 10 L 0 10 L 5 0 Z" style="stroke-miterlimit: 7; fill: rgb(66, 66, 66);" transform="matrix(0, 1, -1, 0, 9.999885, 0)" bx:shape="triangle 0 0 10 10 0.5 0 1@05c4d4a2"/>
+            </marker>
+        </defs>
+        <g cx-id="run_button" cx-class="click,hide" v:json="{&quot;payload&quot;:true,&quot;topic&quot;:&quot;button clicked&quot;}">
+            <title>Button</title>
+            <rect cx-class="color" x="750.138" y="66.459" width="203.142" height="66.336" style="fill: rgb(53, 117, 195);"></rect>
+            <text cx-class="status" style="fill: rgb(255, 255, 255); font-size: 31px; font-weight: 700; paint-order: stroke; white-space: pre;" x="820.52" y="108.872">RUN</text>
+        </g>
+
+        <g cx-id="tank">
+            <title>Tank</title>
+            <rect cx-class="color" x="176.613" y="128.451" width="220" height="300" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;"/>
+            <path cx-class="stroke" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -347.961029)" d="M 517.165 616.914 A 67.339 67.339 0 1 1 651.843 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 270 90 1@b77ee557"/>
+            <path cx-class="stroke" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -47.961182)" d="M 651.843 616.914 A 67.339 67.339 0 1 1 517.165 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 90 270 1@236ce6ad"/>
+            <text style="fill: rgb(98, 98, 98); font-size: 26px; font-weight: 700; white-space: pre;" x="248.973" y="113.804"><title>Name</title>T-101</text>
+            <path d="M 180.508 277.8 C 187.809 272.503 191.399 276.589 198.293 276.589 C 201.263 276.589 205.577 275.245 208.504 276.217 C 211.271 277.135 216.156 279.449 219.265 277.971 C 221.86 276.736 227.125 274.688 230.379 275.768 C 231.999 276.306 236.096 277.93 237.778 276.801 C 238.764 276.139 244.703 273.727 246.093 274.682 C 248.27 276.178 252.621 277.752 255.312 276.853 C 261.776 274.693 267.727 278.647 274.034 277.714 C 286.384 275.887 299.15 274.115 312.32 276.3 C 320.345 277.631 333.161 278.344 339.627 275.349 C 341.713 274.382 346.935 276.165 349.672 275.535 C 353.293 274.7 356.633 276.435 360.053 277.069 C 365.108 278.006 371.654 278.288 376.764 278.288 C 379.549 278.288 384.165 276.189 386.671 277.91 C 387.729 278.637 391.621 277.62 392.567 277.257 C 394.148 276.648 396.613 278.044 396.613 277.138" style="stroke-width: 3px; fill: none; vector-effect: non-scaling-stroke; stroke: rgb(40, 53, 147);"/>
+        </g>
+        <g cx-id="T-101_bar" cx-class="hide">
+            <title>Indicator</title>
+            <rect x="396.613" y="128.451" width="30" height="300" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;"/>
+            <rect x="396.613" y="128.451" width="30" height="17.479" style="vector-effect: non-scaling-stroke; stroke-width: 2px; fill: rgb(33, 33, 33); stroke: rgb(33, 33, 33);"/>
+            <rect x="396.613" y="410.972" width="30" height="17.479" style="vector-effect: non-scaling-stroke; stroke-width: 2px; fill: rgb(33, 33, 33); stroke: rgb(33, 33, 33);"/>
+            <rect x="396.613" y="145.93" width="30" height="17.479" style="vector-effect: non-scaling-stroke; stroke-width: 2px; stroke: rgb(97, 97, 97); fill: rgb(117, 117, 117);"/>
+            <rect x="396.613" y="393.493" width="30" height="17.479" style="vector-effect: non-scaling-stroke; stroke-width: 2px; fill: rgb(117, 117, 117); stroke: rgb(97, 97, 97);"/>
+            <rect x="396.613" y="358.083" width="30" height="35.41" style="vector-effect: non-scaling-stroke; stroke-width: 2px; stroke: rgb(97, 97, 97); fill: rgb(117, 117, 117);"/>
+            <rect x="396.613" y="163.409" width="30" height="35.41" style="vector-effect: non-scaling-stroke; stroke-width: 2px; fill: rgb(117, 117, 117); stroke: rgb(97, 97, 97);"/>
+            <g cx-id="T-101_level" cx-class="move">
+                <path cx-class="color" d="M -1158.042 -715.812 L -1149.042 -687.812 L -1167.042 -687.812 L -1158.042 -715.812 Z" style="fill: rgb(97, 97, 97);" transform="matrix(0, -1, 1, 0, 1112.424805, -879.590454)" bx:shape="triangle -1167.042 -715.812 18 28 0.5 0 1@2477659d"/>
+            </g>
+        </g>
+        <g cx-id="P-101A" cx-class="move" transform="matrix(1, 0, 0, 1, -144.527634, -291.399963)">
+            <path cx-class="color" d="M 1018 600 C 1018 609.941 1009.941 618 1000 618 C 990.059 618 982 609.941 982 600 C 982 590.059 990.059 582 1000 582 C 1009.941 582 1018 590.059 1018 600 Z M 1070 600 C 1070 638.66 1038.66 670 1000 670 C 961.34 670 930 638.66 930 600 C 930 561.34 961.34 530 1000 530 C 1038.66 530 1070 561.34 1070 600 Z M 997.535 530 L 1124.172 530 L 1124.172 565.577 L 1060.965 565.577 C 1048.946 544.336 1026.147 530 1000 530 C 999.175 530 998.353 530.014 997.535 530.043 L 997.535 530 Z" style="fill: rgb(216, 216, 216); stroke: rgb(117, 117, 117); stroke-width: 2px; vector-effect: non-scaling-stroke;">
+                <title>Unit</title>
+            </path>
+            <title>Pump</title>
+            <text style="fill: rgb(98, 98, 98); font-size: 26px; font-weight: 700; white-space: pre;" x="963.593" y="522.202"><title>Name</title>P-201A</text>
+            <text cx-class="status" style="fill: rgb(40, 53, 147); font-size: 26px; font-weight: 700; white-space: pre;" x="1076.706" y="662.936"><title>Status</title>Stopped</text>
+        </g>
+        <g id="P-101B" cx-class="hide" transform="matrix(1, 0, 0, 1, -144.527634, 7.183367)">
+            <path cx-class="color" d="M 1018 600 C 1018 609.941 1009.941 618 1000 618 C 990.059 618 982 609.941 982 600 C 982 590.059 990.059 582 1000 582 C 1009.941 582 1018 590.059 1018 600 Z M 1070 600 C 1070 638.66 1038.66 670 1000 670 C 961.34 670 930 638.66 930 600 C 930 561.34 961.34 530 1000 530 C 1038.66 530 1070 561.34 1070 600 Z M 997.535 530 L 1124.172 530 L 1124.172 565.577 L 1060.965 565.577 C 1048.946 544.336 1026.147 530 1000 530 C 999.175 530 998.353 530.014 997.535 530.043 L 997.535 530 Z" style="fill: rgb(216, 216, 216); stroke: rgb(117, 117, 117); stroke-width: 2px; vector-effect: non-scaling-stroke;">
+                <title>Unit</title>
+            </path>
+            <title>Pump 2</title>
+            <text style="fill: rgb(98, 98, 98); font-size: 26px; font-weight: 700; white-space: pre;" x="963.593" y="522.202">P-201B</text>
+            <text style="fill: rgb(40, 53, 147); font-size: 26px; font-weight: 700; white-space: pre;" x="1076.706" y="662.936"><title>Status</title>Stopped</text>
+        </g>
+        <g>
+            <line style="stroke: rgb(66, 66, 66);" x1="290.589" y1="480.453" x2="290.589" y2="575.261"/>
+            <line style="stroke: rgb(66, 66, 66); marker-end: url(#marker-0);" x1="290.589" y1="575.261" x2="636.564" y2="575.261"/>
+            <line style="stroke: rgb(66, 66, 66);" x1="636.565" y1="575.261" x2="636.565" y2="309.322"/>
+            <line style="marker-end: url(#marker-0); stroke: rgb(66, 66, 66);" x1="636.564" y1="309.322" x2="852.792" y2="309.322"/>
+            <line style="stroke: rgb(66, 66, 66);" x1="636.564" y1="608.497" x2="636.564" y2="575.261"/>
+            <line style="stroke: rgb(66, 66, 66); marker-end: url(#marker-0);" x1="636.564" y1="608.497" x2="852.792" y2="608.497"/>
+        </g>
+    </svg>
+
+    <!-- SVG FILE CONTENT ABOVE -->
+
+    <style>.Text\.cls {text-anchor: middle;}</style>
+    <script>
+        (function($scope) {
+
+            const maxStatusLength = 12;
+            const cxIdAttr = "cx-id";
+            const cxClassAttr = "cx-class";
+            const cxClassSet = {
+                move: "move",
+                color: "color",
+                status: "status",
+                hide: "hide",
+                stroke: "stroke",
+                click: "click",
+            }
+
+            $scope.svgInit = (containerId) => {
+                let elText;
+                if (!$scope.graphicObjects) $scope.graphicObjects = [];
+                $scope.svgRoot = $(`#${containerId} > svg`)[0];
+
+
+                const els = $(`#${containerId} [cx-id]`);
+
+                for (const el of els) {
+                    const $el = $(el);
+                    const elId = $el.attr(cxIdAttr);
+
+                    if ($el.attr(cxClassAttr)) buildActionSet($el, elId);
+                    recursiveEach($el, elId);
+                }
+
+                console.log($scope.graphicObjects);
+
+                function buildActionSet($el, elId) {
+                    const existingGraphicObj = $scope.graphicObjects.find(v => v.id === elId);
+                    const graphicObject = existingGraphicObj ? existingGraphicObj : {id: elId};
+                    if (!existingGraphicObj) $scope.graphicObjects.push(graphicObject);
+
+                    const elClasses = $el.attr(cxClassAttr).split(",");
+                    for (let elClass of elClasses) {
+                        elClass = elClass.trim();
+                        if (!graphicObject[elClass]) graphicObject[elClass] = [];
+
+                        if (elClass === cxClassSet.status) {
+                            elText = undefined;
+                            findTextEl($el);
+                            if (elText) graphicObject[elClass].push(elText);
+                        }
+                        else graphicObject[elClass].push($el);
+
+                        if (elClass === cxClassSet.click) {
+                            $el.css("cursor", "pointer");
+                            $el.mousedown(_ => $el.css("filter", "brightness(85%)"));
+                            $el.mouseup(_ => $el.css("filter", "none"));
+                            let json = $el.attr("v:json").trim();
+                            if (json.startsWith("{")) {
+                                try {
+                                    json = JSON.parse(json);
+                                    if (!json.topic) json.topic = elId;
+                                    json.cxId = elId;
+                                } catch {}
+                            }
+                            $el.click(_ => $scope.send(json));
+                        }
+                    }
+                }
+
+                function findTextEl($el) {
+                    if ($el.is("text") || $el.is("tspan")) elText = $el;
+                    if ($el.is("tspan")) return;
+
+                    for (const child of $el.children()) {
+                        if (child.hasAttribute(cxIdAttr)) continue;
+                        findTextEl($(child));
+                    }
+                }
+
+                function recursiveEach($el, elId){
+                    $el.children().each(function () {
+                        if (this.hasAttribute(cxIdAttr)) return;
+                        const $child = $(this);
+                        const curClass = $child.attr(cxClassAttr);
+                        if (curClass) {
+                            buildActionSet($child, elId);
+                        }
+                        recursiveEach($child, elId);
+                    });
+                }
+            }
+
+
+            $scope.$watch('msg', function() {
+                if (!$scope.msg) return;
+
+                if (Array.isArray($scope.msg.payload)) {
+                    for (let aReq of $scope.msg.payload) {
+                        animateObject(aReq.payload, aReq.topic);
+                    }
+                } else {
+                    animateObject($scope.msg.payload, $scope.msg.topic);
+                }
+            });
+
+            function animateObject(payload, topic) {
+                if (payload === undefined || payload === null ||
+                    !topic || typeof topic !== 'string' || !topic.includes('@')) return;
+
+                const id = topic.split('@')[0], cxType = topic.split('@')[1];
+
+                for (const graphicObject of $scope.graphicObjects) {
+                    const objId = graphicObject.id;
+                    if (objId !== id || !graphicObject[cxType]) continue;
+
+                    switch (cxType) {
+                        case cxClassSet.color:
+                            console.log(objId);
+                            if (typeof payload !== "string") continue;
+                            // apply the change to all elements
+                            graphicObject[cxType].forEach(el => el.css({fill : payload}));
+                            break;
+                        case cxClassSet.status:
+                            if (typeof payload !== "string") continue;
+                            const statusText = (payload.length > maxStatusLength) ?
+                                payload.substring(0, maxStatusLength - 3) + '...' : payload;
+                            graphicObject[cxType].forEach(el => el.text(statusText));
+                            break;
+                        case cxClassSet.hide:
+                            if (typeof payload !== "boolean") continue;
+                            const displayAttr = (payload)? 'none' : '';
+                            graphicObject[cxType].forEach(el => el.css({display: displayAttr}));
+                            break;
+                        case cxClassSet.move:
+                            if (typeof payload !== "object") continue;
+                            graphicObject[cxType].forEach($el => {
+                                const el = $el[0];
+                                const tx = payload.x || 0;
+                                const ty = payload.y || 0;
+
+                                let transform = (el.transform.baseVal.length) ?
+                                    el.transform.baseVal.consolidate():
+                                    createTransform(el.transform.baseVal);
+
+                                let om = $el.data("om");
+                                if (!om) {
+                                    om = transform.matrix.multiply($scope.svgRoot.createSVGMatrix());
+                                    $el.data("om", om);
+                                }
+
+                                let m = om;
+                                const rot = ((180 / Math.PI) * Math.atan2(m.d, m.c) - 90);
+                                m = rot ? om.rotate(-rot).translate(tx, ty).rotate(rot) : m.translate(tx, ty);
+                                if (payload.deg && typeof payload.deg === "number") {
+                                    const box = $el[0].getBBox();
+                                    const pivotX = typeof payload.pivotX === "number" ? payload.pivotX : 0.5;
+                                    const pivotY = typeof payload.pivotY === "number" ? payload.pivotY : 0.5;
+                                    const cx = box.x + box.width * pivotX;
+                                    const cy = box.y + box.height * pivotY;
+                                    m = m.translate(cx, cy).rotate(payload.deg).translate(-cx, -cy);
+                                }
+                                transform.setMatrix(m);
+
+                                function createTransform(baseVal) {
+                                    const nt = $scope.svgRoot.createSVGTransform();
+                                    nt.setMatrix($scope.svgRoot.createSVGMatrix());
+                                    baseVal.appendItem(nt);
+                                    return baseVal.consolidate();
+                                }
+                            });
+                            break;
+                        case cxClassSet.stroke:
+                            if (typeof payload !== "object") continue;
+                            if (payload.color != null)
+                                graphicObject[cxType].forEach(el => el.css({stroke: payload.color}));
+                            if (payload.width != null)
+                                graphicObject[cxType].forEach(el => el.css({["stroke-width"]: payload.width}));
+                            break;
+                    }
+                }
+            }
+        })(scope);
+    </script>
+</div>

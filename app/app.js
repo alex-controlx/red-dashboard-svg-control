@@ -9,7 +9,7 @@ angular.module('myApp', [
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
-      $routeProvider.otherwise({redirectTo: '/view1'});
+      $routeProvider.otherwise({redirectTo: '/view2'});
     }])
     .directive('uiTemplate', [function () {
         return {
@@ -20,5 +20,16 @@ angular.module('myApp', [
             link: function(scope) {
                 // console.log(scope);
             }
-        }
+        };
+    }])
+    .directive('newUiTemplate', [function () {
+        return {
+            restrict: 'E',
+            // transclude: true,
+            // scope: true,
+            templateUrl: './view2/ui_template_v2.html',
+            link: function(scope) {
+                // console.log(scope);
+            }
+        };
     }]);

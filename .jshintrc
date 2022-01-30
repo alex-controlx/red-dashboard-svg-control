@@ -1,5 +1,6 @@
 {
   "strict": "global",
+  "esversion": 6,
   "globals": {
     // AngularJS
     "angular": false,

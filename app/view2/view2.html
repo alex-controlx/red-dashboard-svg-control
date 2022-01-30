@@ -1,5 +1,76 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<p>This is Version 2. APIs changed, read Github</p>
+<div>
+  <select ng-model="selectedColorEl">
+    <option ng-repeat="item in graphicObjects | filter : { color: [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <input ng-change="changeColor()" ng-model="color.red" type="range" min="0" max="255">
+  <input ng-change="changeColor()" ng-model="color.blue" type="range" min="0" max="255">
+  <input ng-change="changeColor()" ng-model="color.green" type="range" min="0" max="255">
+</div>
+<div>
+  <select ng-model="selectedOnOffEl">
+    <option ng-repeat="item in graphicObjects | filter : { color : [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <button ng-click="switchOn(true)">ON</button>
+  <button ng-click="switchOn(false)">OFF</button>
+</div>
+<div>
+  <select ng-model="selectedMoveEl">
+    <option ng-repeat="item in graphicObjects | filter : { move : [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <input ng-change="changePosition()" ng-model="position.x" type="range" min="-100" max="100" ng-dblclick="zeroPosition('x')">
+  <input ng-change="changePosition()" ng-model="position.y" type="range" min="-100" max="100" ng-dblclick="zeroPosition('y')">
+  <input ng-change="changePosition()" ng-model="position.deg" type="range" min="-180" max="180" ng-dblclick="zeroPosition('deg')">
+  <input type="number" ng-model="position.pivotX">
+  <input type="number" ng-model="position.pivotY">
+</div>
+<div>
+  <select ng-model="selectedStatusEl">
+    <option ng-repeat="item in graphicObjects | filter : { status : [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <input type="text" ng-model="newStatus" ng-change="changeStatus()">
+</div>
+
+<div>
+  <select ng-model="selectedHideEl">
+    <option ng-repeat="item in graphicObjects | filter : { hide : [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <button ng-click="hide(true)">HIDE</button>
+  <button ng-click="hide(false)">SHOW</button>
+</div>
+<div>
+  <select ng-model="combinedEl">
+    <option ng-repeat="item in graphicObjects | filter : ( {status : []} || {color : []} )"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <button ng-click="mixedAnimation()">TOGGLE</button>
+</div>
+<div>
+  <select ng-model="selectedStrokeEl">
+    <option ng-repeat="item in graphicObjects | filter : { stroke : [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <input type="text" ng-model="stroke.color" ng-change="changeStroke(stroke.color, null)">
+  <input type="text" ng-model="stroke.width" ng-change="changeStroke(null, stroke.width)">
+</div>
+
+<div>
+  <p>Node-RED message IN:</p>
+  <pre>{{msg}}</pre>
+</div>
+
+<new-ui-template></new-ui-template>
+<div>
+  <p>Node-RED message OUT:</p>
+  <pre>{{msgOut}}</pre>
+</div>
+
+<script>
+  // this is only for testing
+  scope = angular.element('new-ui-template').scope();
+</script>

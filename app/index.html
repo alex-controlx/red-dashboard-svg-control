@@ -13,21 +13,24 @@
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
-  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-3.11.2.min.js"></script>
+  <script>
+    let scope;
+  </script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
+  <ul style="margin: 25px" class="menu">
+    <li><a href="#!/view1">Version 1</a></li>
+    <li><a href="#!/view2">Version 2</a></li>
   </ul>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
+  <div style="margin: 25px" ng-view></div>
 
-  <div>AngularJS seed app: v<span app-version></span></div>
+<!--  <div>AngularJS seed app: v<span app-version></span></div>-->
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
