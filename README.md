@@ -1,6 +1,6 @@
 # Controlled SVG from Node-RED Dashboard Template
 
-### Below is version 1. Check out [version 2](https://github.com/alex-controlx/red-dashboard-svg-control/blob/master/README.2.md)
+### Below is version 1. Check out [version 2](https://github.com/alex-controlx/red-dashboard-svg-control/blob/master/README.2.MD)
 
 This is testing environment for checking SVG content and script before importing it into Template. By cloning and 
 running `npm start` will have a result shown in the [video](https://youtu.be/_w8A3yhw0vA). Latest screenshot
