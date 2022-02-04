@@ -40,7 +40,7 @@ the Template node will animate your SVG content.
 
 
 ### API
-APIs haven't changed from version 1, below it represented in typescript.  
+There is only one change in APIs from version 1, see below with the note.  
 Type of Node-RED message payload with the following topics:
 ```typescript
 interface movePayload {
@@ -66,10 +66,18 @@ interface strokePayload {
   color: string,
   width: number
 }
-
+```
+Forming `topic` string:
+```typescript
 type cxClass = "move" | "color" | "status" | "hide" | "stroke" | "click"
 type cxTopic = "uniqueId@" & cxClass
 ```
+*^^^ THIS IS THE CHANGE ^^^*
+
+Below is an example:
+ - Before  `{payload: "green", topic: "pump@cx_color"}`
+ - After   `{payload: "green", topic: "pump@color"}`
+
 
 Node-RED message and payload structure:
 ```typescript
