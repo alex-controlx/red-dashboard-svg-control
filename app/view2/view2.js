@@ -21,6 +21,7 @@ angular.module('myApp.view2', ['ngRoute'])
   const cxStatus = "status";
   const cxHide = "hide";
   const cxStroke = "stroke";
+  const cxClassName = "class";
   // --- END ----
   let buttonCount = 0;
 
@@ -119,6 +120,22 @@ angular.module('myApp.view2', ['ngRoute'])
       width: (width != null) ? width : $scope.stroke.width
     };
     $scope.msg = { payload: config, topic: scope.selectedStrokeEl.split("@")[0] + "@" + cxStroke};
+  };
+
+
+  $scope.selectedClassEl = null;
+  $scope.classNameInput = "";
+  $scope.setCLass = function(isAdd) {
+    if (!$scope.selectedClassEl) return;
+    const setClass = {
+      action: (isAdd ? "add" : "remove"),
+      className: $scope.classNameInput
+    };
+    $scope.msg = { payload: setClass, topic: scope.selectedClassEl.split("@")[0] + "@" + cxClassName };
+  };
+  $scope.clearCLasses = function() {
+    if (!$scope.selectedClassEl) return;
+    $scope.msg = { payload: {action: "clear"}, topic: scope.selectedClassEl.split("@")[0] + "@" + cxClassName };
   };
 
 }]);

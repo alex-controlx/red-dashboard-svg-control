@@ -22,7 +22,7 @@ The classes could be separated by comma `,` or nested under same id:
 
 There are six cx-classes:
 ```
-"move" | "color" | "status" | "hide" | "stroke" | "click"
+"move" | "color" | "status" | "hide" | "stroke" | "click" | "class"
 ```
 When used `click` the HTML tag has to have `v:json` attribute with JSON formatted Node-RED message.
 If the attribute is a string then it will be sent as the payload with . 
@@ -66,10 +66,15 @@ interface strokePayload {
   color: string,
   width: number
 }
+
+interface classPayload {
+    action: "add" | "remove" | "clear",
+    className: string
+}
 ```
 Forming `topic` string:
 ```typescript
-type cxClass = "move" | "color" | "status" | "hide" | "stroke" | "click"
+type cxClass = "move" | "color" | "status" | "hide" | "stroke" | "click" | "class"
 type cxTopic = "uniqueId@" & cxClass
 ```
 *^^^ THIS IS THE CHANGE ^^^*
@@ -82,7 +87,7 @@ Below is an example:
 Node-RED message and payload structure:
 ```typescript
 interface svgControlObject {
-  payload: movePayload | colorPayload | statusPayload | hidePayload | strokePayload,
+  payload: movePayload | colorPayload | statusPayload | hidePayload | strokePayload | classPayload,
   topic: cxTopic
 }
 

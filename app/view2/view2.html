@@ -58,6 +58,16 @@
   <input type="text" ng-model="stroke.color" ng-change="changeStroke(stroke.color, null)">
   <input type="text" ng-model="stroke.width" ng-change="changeStroke(null, stroke.width)">
 </div>
+<div>
+  <select ng-model="selectedClassEl">
+    <option ng-repeat="item in graphicObjects | filter : { class : [] }"
+            ng-value="item.id">{{item.id}}</option>
+  </select>
+  <input type="text" ng-model="classNameInput">
+  <button ng-click="setCLass(true)">ADD</button>
+  <button ng-click="setCLass(false)">REMOVE</button>
+  <button ng-click="clearCLasses()">CLEAR</button>
+</div>
 
 <div>
   <p>Node-RED message IN:</p>

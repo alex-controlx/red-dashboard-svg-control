@@ -1,6 +1,18 @@
 <div id="graphics" ng-init="svgInit('graphics')">
 
     <!-- SVG FILE CONTENT BELOW -->
+    <style>
+        .alarm {
+            animation: blink 2s linear infinite;
+            fill: #ff002b !important;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
 
     <svg viewBox="0 0 1280 800" width="640px" height="400px" style="border: 1px solid black;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
@@ -16,7 +28,7 @@
 
         <g cx-id="tank">
             <title>Tank</title>
-            <rect cx-class="color" x="176.613" y="128.451" width="220" height="300" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;"/>
+            <rect cx-class="color,class" x="176.613" y="128.451" width="220" height="300" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;"/>
             <path cx-class="stroke" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -347.961029)" d="M 517.165 616.914 A 67.339 67.339 0 1 1 651.843 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 270 90 1@b77ee557"/>
             <path cx-class="stroke" style="fill: rgb(224, 224, 224); stroke: rgb(117, 117, 117); vector-effect: non-scaling-stroke; stroke-width: 2px;" transform="matrix(1.633526, 0, 0, 0.77225, -668.189636, -47.961182)" d="M 651.843 616.914 A 67.339 67.339 0 1 1 517.165 616.914 L 584.504 616.914 Z" bx:shape="pie 584.504 616.914 0 67.339 90 270 1@236ce6ad"/>
             <text style="fill: rgb(98, 98, 98); font-size: 26px; font-weight: 700; white-space: pre;" x="248.973" y="113.804"><title>Name</title>T-101</text>
@@ -77,6 +89,7 @@
                 hide: "hide",
                 stroke: "stroke",
                 click: "click",
+                className: "class"
             }
 
             $scope.svgInit = (containerId) => {
@@ -239,6 +252,16 @@
                                 graphicObject[cxType].forEach(el => el.css({stroke: payload.color}));
                             if (payload.width != null)
                                 graphicObject[cxType].forEach(el => el.css({["stroke-width"]: payload.width}));
+                            break;
+
+                        case cxClassSet.className:
+                            if (typeof payload !== "object") continue;
+                            if (payload.action === "add")
+                                graphicObject[cxType].forEach(el => el.addClass(payload.className));
+                            else if (payload.action === "remove")
+                                graphicObject[cxType].forEach(el => el.removeClass(payload.className));
+                            else if (payload.action === "clear")
+                                graphicObject[cxType].forEach(el => el.removeClass());
                             break;
                     }
                 }
